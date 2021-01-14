@@ -13,7 +13,6 @@ module.exports = {
         res.status(200).json({
           id: findUser.id,
           email: findUser.email,
-          success: "success",
         });
         console.log("signin: ", req.session);
       } else {

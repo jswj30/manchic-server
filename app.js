@@ -2,7 +2,16 @@ const express = require("express");
 const app = express();
 const port = 4000;
 const cors = require("cors");
+const session = require("express-session");
 const mainController = require("./controller/index");
+
+app.use(
+  session({
+    secret: "secretkey",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
