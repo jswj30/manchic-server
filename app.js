@@ -10,6 +10,11 @@ app.use(
     secret: "secretkey",
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+      sameSite: "none",
+    },
   })
 );
 
