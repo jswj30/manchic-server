@@ -5,11 +5,11 @@ module.exports = {
         if (err) {
           console.log(err);
         } else {
-          res.redirect("/signin");
+          res.redirect("/");
         }
       });
     } else {
-      res.redirect("/signin");
+      res.redirect("/");
     }
   },
 };
