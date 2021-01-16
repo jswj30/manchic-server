@@ -5,11 +5,11 @@ module.exports = {
         if (err) {
           console.log(err);
         } else {
-          res.redirect("/signin");
+          res.status(205).send("Logged out successfully");
         }
       });
     } else {
-      res.redirect("/signin");
+      res.status(205).send("Logged out successfully");
     }
   },
 };
