@@ -12,7 +12,7 @@ module.exports = {
         req.session.userId = findUser.id;
         res.status(200).json({
           id: findUser.id,
-          email: findUser.email,
+          session: req.session.userId,
         });
         console.log("signin: ", req.session);
       } else {
