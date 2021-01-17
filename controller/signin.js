@@ -9,10 +9,10 @@ module.exports = {
 
     try {
       if (findUser) {
-        req.session.userId = findUser.id;
+        req.session.users = findUser.id;
         res.status(200).json({
           id: findUser.id,
-          session: req.session.userId,
+          session: req.session.users,
         });
         console.log("signin: ", req.session);
       } else {

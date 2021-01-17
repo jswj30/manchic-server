@@ -1,6 +1,6 @@
 module.exports = {
   get: (req, res) => {
-    if (req.session.userId) {
+    if (req.session.users) {
       req.session.destroy((err) => {
         if (err) {
           console.log(err);

@@ -1,9 +1,16 @@
 const express = require("express");
-const app = express();
-const port = 4000;
-const cors = require("cors");
+require("./models");
+
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const session = require("express-session");
+const cors = require("cors");
+
 const mainController = require("./controller/index");
+
+const app = express();
+
+const port = 4000;
 
 app.use(
   session({
@@ -18,13 +25,15 @@ app.use(
   })
 );
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+app.use(morgan("dev"));
+app.use(bodyParser.json());
 
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    method: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
@@ -40,3 +49,5 @@ app.post("/signup", mainController.signup.post);
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+module.exports = app;
