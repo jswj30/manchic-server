@@ -38,9 +38,7 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.status(200).send("Man chic!");
-});
+app.get("/", (req, res) => res.status(200).send("Man chic!"));
 app.get("/main", mainController.main.get);
 app.get("/signout", mainController.signout.get);
 app.post("/signin", mainController.signin.post);
