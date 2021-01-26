@@ -17,18 +17,18 @@ app.use(
     secret: "secretkey",
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
-    },
+    // cookie: {
+    //   httpOnly: true,
+    //   secure: true,
+    //   sameSite: "none",
+    // },
   })
 );
 
+app.use(bodyParser.json());
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
-app.use(morgan("dev"));
-app.use(bodyParser.json());
+// app.use(morgan("dev"));
 
 app.use(
   cors({
@@ -40,9 +40,9 @@ app.use(
 
 app.get("/", (req, res) => res.status(200).send("Man chic!"));
 app.get("/main", mainController.main.get);
-app.get("/signout", mainController.signout.get);
 app.post("/signin", mainController.signin.post);
 app.post("/signup", mainController.signup.post);
+app.post("/signout", mainController.signout.post);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

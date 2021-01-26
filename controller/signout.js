@@ -1,5 +1,5 @@
 module.exports = {
-  get: (req, res) => {
+  post: (req, res) => {
     if (req.session.users) {
       req.session.destroy((err) => {
         if (err) {
